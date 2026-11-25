@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+s<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="utf-8">
@@ -160,6 +160,24 @@ $("copy").addEventListener("click",async()=>{
   catch(e){$("ok").textContent="Mantén presionado el texto y elige Copiar."}
 });
 drawChips();drawGrid();drawCart();
+</script>  <script>
+(function(){
+const U="https://jvtlgyqezihmnjbvdxli.supabase.co",K="sb_publishable_HIPzFPSoUQAlJ2dxiqJyiw_xtW1eeiQ";
+const H={apikey:K,"Content-Type":"application/json"};
+fetch(U+"/rest/v1/productos?select=*&order=orden.asc",{headers:H}).then(r=>r.ok?r.json():[]).then(rows=>{
+  if(!rows.length)return;
+  PRODUCTS.splice(0,PRODUCTS.length,...rows.map(x=>({id:x.id,n:x.nombre,c:x.categoria,e:x.emoji||"🛒",d:x.descripcion||"",g:[x.color1||"#19d3c5",x.color2||"#07897f"],plans:x.planes.map(p=>[p.n,p.p])})));
+  cats.splice(0,cats.length,"Todos",...new Set(PRODUCTS.map(p=>p.c)));
+  drawChips();drawGrid();drawCart();
+}).catch(()=>{});
+function save(){
+  const L=lines();if(!L.length)return;
+  const total=L.reduce((a,l)=>a+l.q*l.pl[1],0);
+  fetch(U+"/rest/v1/pedidos",{method:"POST",headers:{...H,Prefer:"return=minimal"},body:JSON.stringify({items:L.map(l=>({producto:l.p.n,plan:l.pl[0],cantidad:l.q,precio:l.pl[1]})),total:total,texto:$("txt").value})}).catch(()=>{});
+}
+$("copy").addEventListener("click",save);
+$("wa").addEventListener("click",save);
+})();
 </script>
 </body>
   </html>
