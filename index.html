@@ -1,66 +1,63 @@
-s<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#071012">
 <title>Cuba Prime</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f3f8f7;--surface:#fff;--line:#d6e3e0;--text:#0d1b1c;--muted:#4f6668;--gold:#b97d00;--tq:#07897f;--btn:#f5c451;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#071012;--surface:#0e1b1e;--line:#1b3135;--text:#eaf5f3;--muted:#8fa9ab;--gold:#f5c451;--tq:#19d3c5}}
-:root[data-theme="dark"]{--bg:#071012;--surface:#0e1b1e;--line:#1b3135;--text:#eaf5f3;--muted:#8fa9ab;--gold:#f5c451;--tq:#19d3c5}
-html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+:root{--bg:#071012;--s:#0e1b1e;--l:#1b3135;--t:#eaf5f3;--m:#8fa9ab;--g:#f5c451;--q:#19d3c5;color-scheme:dark}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Manrope,system-ui,sans-serif;line-height:1.5}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:var(--bg);border-bottom:1px solid var(--line)}
-.logo{font-family:Syne,Impact,sans-serif;font-weight:800;font-size:1.35rem;letter-spacing:.02em}
-.logo b{color:var(--gold)}
-.cartbtn{font:inherit;font-weight:700;cursor:pointer;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:8px 16px}
-.cartbtn span{display:inline-block;min-width:1.4em;margin-left:6px;text-align:center;border-radius:999px;background:var(--btn);color:#1a1200;font-size:.85rem}
-.cartbtn:focus-visible,.chip:focus-visible,.add:focus-visible,select:focus-visible,.cta:focus-visible,.q:focus-visible{outline:3px solid var(--tq);outline-offset:2px}
-.hero{padding:clamp(40px,9vw,92px) 18px 36px;text-align:center;background:radial-gradient(520px 300px at 18% 0,color-mix(in srgb,var(--tq) 22%,transparent),transparent 70%),radial-gradient(520px 300px at 85% 10%,color-mix(in srgb,var(--gold) 22%,transparent),transparent 70%)}
-.hero h1{font-family:Syne,Impact,sans-serif;font-weight:800;font-size:clamp(2.3rem,8.5vw,4.6rem);line-height:1.02;margin:0 auto 14px;max-width:16ch}
-.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--gold),var(--tq));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p{margin:0 auto 24px;max-width:44ch;color:var(--muted);font-size:1.05rem}
-.cta{display:inline-block;text-decoration:none;font-weight:700;color:#1a1200;background:var(--btn);border-radius:999px;padding:12px 28px;box-shadow:0 8px 24px color-mix(in srgb,var(--btn) 40%,transparent)}
-.perks{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:26px;font-size:.88rem;color:var(--muted)}
-.perks span{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 14px}
-main{max-width:1060px;margin:0 auto;padding:0 18px 60px}
-h2{font-family:Syne,Impact,sans-serif;font-size:1.7rem;margin:26px 0 12px}
-.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 0 18px}
-.chip{font:inherit;font-weight:600;white-space:nowrap;cursor:pointer;color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 18px}
-.chip[aria-pressed="true"]{background:var(--text);color:var(--bg);border-color:var(--text)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
-.card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:transform .18s,box-shadow .18s}
-.card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(0,0,0,.25)}
-.tile{height:112px;display:flex;align-items:center;justify-content:center;font-size:3rem;background:linear-gradient(135deg,var(--c1),var(--c2));position:relative}
-.tile small{position:absolute;left:12px;top:10px;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.35);border-radius:999px;padding:2px 10px}
-.body{padding:16px;display:flex;flex-direction:column;gap:10px;flex:1}
-.body h3{margin:0;font-family:Syne,Impact,sans-serif;font-size:1.2rem}
-.body p{margin:0;color:var(--muted);font-size:.92rem;flex:1}
-select{font:inherit;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 10px;width:100%}
-.row{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.price{font-family:Syne,Impact,sans-serif;font-weight:800;font-size:1.5rem;color:var(--gold)}
-.add{font:inherit;font-weight:700;cursor:pointer;color:#1a1200;background:var(--btn);border:0;border-radius:10px;padding:9px 16px}
-dialog{width:calc(100% - 28px);max-width:460px;border:1px solid var(--line);border-radius:20px;background:var(--surface);color:var(--text);padding:0}
-dialog::backdrop{background:rgba(0,0,0,.6)}
-.ch{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border-bottom:1px solid var(--line)}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--t);font-family:Manrope,system-ui,sans-serif;line-height:1.5;padding-bottom:env(safe-area-inset-bottom,0px)}
+header{position:sticky;top:0;z-index:9;display:flex;align-items:center;justify-content:space-between;padding:calc(12px + env(safe-area-inset-top,0px)) 16px 12px;background:rgba(7,16,18,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--l)}
+.logo{font-family:Syne,Impact,sans-serif;font-weight:800;font-size:1.3rem}
+.logo b{color:var(--g)}
+.cartbtn{font:inherit;font-weight:700;cursor:pointer;color:var(--t);background:var(--s);border:1px solid var(--l);border-radius:999px;padding:8px 16px}
+.cartbtn span{display:inline-block;min-width:1.4em;margin-left:6px;text-align:center;border-radius:999px;background:var(--g);color:#1a1200;font-size:.85rem}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--q);outline-offset:2px}
+.hero{padding:34px 16px 18px;text-align:center;background:radial-gradient(480px 260px at 20% 0,rgba(25,211,197,.18),transparent 70%),radial-gradient(480px 260px at 85% 0,rgba(245,196,81,.16),transparent 70%)}
+.hero h1{font-family:Syne,Impact,sans-serif;font-weight:800;font-size:clamp(2rem,7vw,3.6rem);line-height:1.05;margin:0 auto 8px;max-width:18ch}
+.hero h1 em{font-style:normal;color:var(--g)}
+.hero p{margin:0 auto 18px;color:var(--m);max-width:44ch}
+.search{max-width:560px;margin:0 auto;position:relative}
+.search input{width:100%;font:inherit;font-size:1.05rem;color:var(--t);background:var(--s);border:2px solid var(--l);border-radius:999px;padding:14px 20px 14px 48px}
+.search input:focus{border-color:var(--q)}
+.search i{position:absolute;left:18px;top:50%;transform:translateY(-50%);font-style:normal;opacity:.7}
+main{max-width:1060px;margin:0 auto;padding:6px 16px 60px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:12px 0}
+.chip{font:inherit;font-weight:600;white-space:nowrap;cursor:pointer;color:var(--m);background:var(--s);border:1px solid var(--l);border-radius:999px;padding:6px 16px}
+.chip[aria-pressed="true"]{background:var(--t);color:var(--bg);border-color:var(--t)}
+.count{color:var(--m);font-size:.9rem;margin:0 0 10px}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px}
+.card{display:flex;align-items:center;gap:12px;background:var(--s);border:1px solid var(--l);border-radius:16px;padding:12px}
+.ic{flex:none;width:56px;height:56px;border-radius:14px;overflow:hidden;display:grid;place-items:center;color:#fff;font-family:Syne,Impact,sans-serif;font-weight:800;font-size:1.25rem}
+.ic img{width:100%;height:100%;object-fit:cover;display:block}
+.info{flex:1;min-width:0}
+.info h3{margin:0;font-size:1rem;line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.info small{display:block;color:var(--m);margin-bottom:6px}
+select{font:inherit;font-size:.88rem;color:var(--t);background:var(--bg);border:1px solid var(--l);border-radius:8px;padding:4px 6px;max-width:100%}
+.buy{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.price{font-family:Syne,Impact,sans-serif;font-weight:800;font-size:1.1rem;color:var(--g);white-space:nowrap}
+.price.q{font-size:.85rem;color:var(--m)}
+.add{font:inherit;font-weight:700;font-size:.9rem;cursor:pointer;color:#1a1200;background:var(--g);border:0;border-radius:10px;padding:7px 14px}
+.msg{grid-column:1/-1;padding:30px 16px;text-align:center;color:var(--m);border:1px dashed var(--l);border-radius:16px}
+dialog{width:calc(100% - 28px);max-width:460px;border:1px solid var(--l);border-radius:20px;background:var(--s);color:var(--t);padding:0}
+dialog::backdrop{background:rgba(0,0,0,.65)}
+.ch{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border-bottom:1px solid var(--l)}
 .ch h3{margin:0;font-family:Syne,Impact,sans-serif}
-.x{font:inherit;cursor:pointer;color:var(--muted);background:none;border:0;font-size:1.4rem}
+.x{font:inherit;cursor:pointer;color:var(--m);background:none;border:0;font-size:1.5rem}
 .items{padding:6px 18px;max-height:34vh;overflow-y:auto}
-.it{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:.92rem}
-.it small{color:var(--muted);display:block}
+.it{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px dashed var(--l);font-size:.92rem}
+.it small{color:var(--m);display:block}
 .qty{display:flex;align-items:center;gap:6px}
-.q{font:inherit;font-weight:700;cursor:pointer;width:28px;height:28px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--text)}
+.q2{font:inherit;font-weight:700;cursor:pointer;width:28px;height:28px;border-radius:8px;border:1px solid var(--l);background:var(--bg);color:var(--t)}
 .cf{padding:14px 18px 18px;display:grid;gap:10px}
 .tot{display:flex;justify-content:space-between;font-weight:700;font-size:1.1rem}
-textarea{font:inherit;font-size:.85rem;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px;width:100%;height:96px;resize:none}
-.empty{padding:26px 0;text-align:center;color:var(--muted)}
-.ok{min-height:1.2em;font-size:.85rem;color:var(--tq)}
-footer{text-align:center;color:var(--muted);font-size:.85rem;padding:24px 18px 36px;border-top:1px solid var(--line)}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card{transition:none}}
+textarea{font:inherit;font-size:.85rem;color:var(--t);background:var(--bg);border:1px solid var(--l);border-radius:10px;padding:8px;width:100%;height:96px;resize:none}
+.ok{min-height:1.2em;font-size:.85rem;color:var(--q)}
+footer{text-align:center;color:var(--m);font-size:.85rem;padding:24px 16px 36px;border-top:1px solid var(--l)}
 </style>
 </head>
 <body>
@@ -71,18 +68,17 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;padding:24px 18px 3
 
 <section class="hero">
   <h1>Tus servicios <em>premium</em> en un solo lugar</h1>
-  <p>YouTube, Spotify, Telegram, Gemini y tus aplicaciones favoritas. Elige tu plan y haz tu pedido en minutos.</p>
-  <a class="cta" href="#tienda">Ver la tienda</a>
-  <div class="perks"><span>⚡ Entrega rápida</span><span>💬 Atención por mensaje</span><span>🔒 Pedido seguro</span></div>
+  <p>Busca lo que necesitas, elige tu plan y haz tu pedido en minutos.</p>
+  <div class="search"><i>🔎</i><input id="q" type="search" placeholder="Buscar: Spotify, ChatGPT, Gemini..." aria-label="Buscar servicio" autocomplete="off"></div>
 </section>
 
-<main id="tienda">
-  <h2>Tienda</h2>
+<main>
   <div class="chips" id="chips" role="group" aria-label="Filtrar por categoría"></div>
-  <div class="grid" id="grid"></div>
+  <p class="count" id="n" role="status"></p>
+  <div class="list" id="list"><div class="msg">Cargando catálogo…</div></div>
 </main>
 
-<footer>© Cuba Prime · Servicios premium y aplicaciones</footer>
+<footer>© Cuba Prime · Servicios premium</footer>
 
 <dialog id="dlg" aria-label="Tu pedido">
   <div class="ch"><h3>Tu pedido</h3><button class="x" id="close" aria-label="Cerrar">×</button></div>
@@ -97,49 +93,55 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;padding:24px 18px 3
 </dialog>
 
 <script>
-// Pon aquí tu número de WhatsApp con código de país y sin signos, por ejemplo "5355551234"
+// Tu número de WhatsApp con código de país y sin signos, por ejemplo "5355551234"
 const WA="";
-const PRODUCTS=[
-{id:"yt",n:"YouTube Premium",c:"Video",e:"▶️",d:"Videos sin anuncios, reproducción en segundo plano y descargas.",g:["#ff3b30","#8e0e08"],plans:[["1 mes",4],["3 meses",11],["12 meses",40]]},
-{id:"sp",n:"Spotify Premium",c:"Música",e:"🎧",d:"Toda tu música sin anuncios y para escuchar sin conexión.",g:["#1ed760","#0a6b30"],plans:[["1 mes",3.5],["3 meses",10],["12 meses",35]]},
-{id:"ge",n:"Gemini Pro",c:"IA",e:"✨",d:"El asistente de inteligencia artificial de Google con sus modelos más potentes.",g:["#6f7bff","#b04ae0"],plans:[["1 mes",12],["3 meses",33]]},
-{id:"tg",n:"Telegram Premium",c:"Mensajería",e:"✈️",d:"Más límites, más funciones y una experiencia sin anuncios.",g:["#2aabee","#146a9e"],plans:[["1 mes",5],["3 meses",14],["12 meses",50]]},
-{id:"ap",n:"Aplicaciones Premium",c:"Apps",e:"📱",d:"Tus apps favoritas con todas las funciones desbloqueadas.",g:["#f5c451","#b9670a"],plans:[["Por app",2],["Pack de 5",8]]}
-];
+const U="https://jvtlgyqezihmnjbvdxli.supabase.co",K="sb_publishable_HIPzFPSoUQAlJ2dxiqJyiw_xtW1eeiQ";
+const H={apikey:K,"Content-Type":"application/json"};
+const IC=[["YT","#e5322d"],["PV","#1a98ff"],["SP","#1db954"],["CG","#10a37f"],["GE","#6f7bff"],["CP","#7c5cff"],["GK","#3b3b46"],["EL","#d98a00"],["HG","#7d3cff"],["GM","#ff5d8f"],["GR","#15a37f"],["CO","#0056d2"],["UD","#a435f0"],["DU","#58cc02"],["NT","#2f2f2f"],["MS","#0078d4"],["ZM","#2d8cff"],["LI","#0a66c2"],["LS","#0a4d8c"],["CC","#161616"],["SF","#1ea7a4"],["TG","#2aabee"],["AP","#f5a524"]];
 const $=id=>document.getElementById(id);
-const cart={};const sel={};let cat="Todos";
-const money=n=>"$"+(Math.round(n*100)/100).toString();
+let P=[],cat="Todos",qs="";const cart={},sel={};
+const norm=s=>String(s).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
 const esc=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const cats=["Todos",...new Set(PRODUCTS.map(p=>p.c))];
-
-function drawChips(){
-  $("chips").innerHTML=cats.map(c=>'<button class="chip" aria-pressed="'+(c===cat)+'" data-c="'+esc(c)+'">'+esc(c)+'</button>').join("");
+const money=n=>n>0?"$"+(Math.round(n*100)/100):"Consultar";
+function icon(p){
+  if(p.img)return '<div class="ic"><img src="'+esc(p.img)+'" alt="" width="56" height="56" loading="lazy"></div>';
+  const c=IC[p.i]||[p.n.slice(0,2).toUpperCase(),"#19d3c5"];
+  return '<div class="ic" style="background:linear-gradient(135deg,'+c[1]+','+c[1]+'cc)" aria-hidden="true">'+c[0]+'</div>';
 }
-function drawGrid(){
-  $("grid").innerHTML=PRODUCTS.filter(p=>cat==="Todos"||p.c===cat).map(p=>{
-    const i=sel[p.id]||0;
-    return '<article class="card"><div class="tile" style="--c1:'+p.g[0]+';--c2:'+p.g[1]+'"><small>'+esc(p.c)+'</small><span aria-hidden="true">'+p.e+'</span></div><div class="body"><h3>'+esc(p.n)+'</h3><p>'+esc(p.d)+'</p>'+
-    '<select data-p="'+p.id+'" aria-label="Plan de '+esc(p.n)+'">'+p.plans.map((pl,k)=>'<option value="'+k+'"'+(k===i?' selected':'')+'>'+esc(pl[0])+'</option>').join("")+'</select>'+
-    '<div class="row"><span class="price">'+money(p.plans[i][1])+'</span><button class="add" data-add="'+p.id+'">Añadir</button></div></div></article>';
-  }).join("");
+function chips(){
+  const c=["Todos",...new Set(P.map(p=>p.c))];
+  $("chips").innerHTML=c.map(x=>'<button class="chip" aria-pressed="'+(x===cat)+'" data-c="'+esc(x)+'">'+esc(x)+'</button>').join("");
 }
-function lines(){
-  return Object.keys(cart).map(k=>{const [id,i]=k.split("|"),p=PRODUCTS.find(x=>x.id===id),pl=p.plans[+i];return {k,p,pl,q:cart[k]}});
+function draw(){
+  const f=P.filter(p=>(cat==="Todos"||p.c===cat)&&(!qs||norm(p.n+" "+p.c+" "+p.d).includes(qs)));
+  $("n").textContent=f.length+(f.length===1?" servicio":" servicios");
+  $("list").innerHTML=f.length?f.map(p=>{
+    const i=sel[p.id]||0,pl=p.plans[i];
+    return '<article class="card">'+icon(p)+'<div class="info"><h3>'+esc(p.n)+'</h3><small>'+esc(p.c)+'</small>'+
+    '<select data-p="'+p.id+'" aria-label="Plan de '+esc(p.n)+'">'+p.plans.map((x,k)=>'<option value="'+k+'"'+(k===i?" selected":"")+'>'+esc(x[0])+'</option>').join("")+'</select></div>'+
+    '<div class="buy"><span class="price'+(pl[1]>0?"":" q")+'">'+money(pl[1])+'</span><button class="add" data-add="'+p.id+'">Añadir</button></div></article>';
+  }).join(""):'<div class="msg">No encontramos “'+esc(qs)+'”. Escríbenos y lo conseguimos para ti.</div>';
 }
+function lines(){return Object.keys(cart).map(k=>{const [id,i]=k.split("|"),p=P.find(x=>x.id===id),pl=p.plans[+i];return{k,p,pl,q:cart[k]}})}
 function drawCart(){
-  const L=lines(),n=L.reduce((a,l)=>a+l.q,0),t=L.reduce((a,l)=>a+l.q*l.pl[1],0);
+  const L=lines(),n=L.reduce((a,l)=>a+l.q,0),t=L.reduce((a,l)=>a+l.q*l.pl[1],0),pend=L.some(l=>!(l.pl[1]>0));
   $("count").textContent=n;
-  $("items").innerHTML=L.length?L.map(l=>'<div class="it"><div>'+esc(l.p.n)+'<small>'+esc(l.pl[0])+' · '+money(l.pl[1])+'</small></div><div class="qty"><button class="q" data-m="'+l.k+'" aria-label="Quitar uno">−</button><b>'+l.q+'</b><button class="q" data-a="'+l.k+'" aria-label="Añadir uno">+</button></div></div>').join(""):'<div class="empty">Todavía no has añadido nada.</div>';
+  $("items").innerHTML=L.length?L.map(l=>'<div class="it"><div>'+esc(l.p.n)+'<small>'+esc(l.pl[0])+' · '+money(l.pl[1])+'</small></div><div class="qty"><button class="q2" data-m="'+l.k+'" aria-label="Quitar uno">−</button><b>'+l.q+'</b><button class="q2" data-a="'+l.k+'" aria-label="Añadir uno">+</button></div></div>').join(""):'<div class="msg" style="border:0">Todavía no has añadido nada.</div>';
   $("cf").style.display=L.length?"grid":"none";
-  $("total").textContent=money(t);
-  const txt="Hola, quiero hacer este pedido en Cuba Prime:\n"+L.map(l=>"- "+l.q+" x "+l.p.n+" ("+l.pl[0]+") = "+money(l.q*l.pl[1])).join("\n")+"\nTotal: "+money(t);
+  $("total").textContent=money(t)+(pend&&t>0?" + por consultar":"");
+  const txt="Hola, quiero hacer este pedido en Cuba Prime:\n"+L.map(l=>"- "+l.q+" x "+l.p.n+" ("+l.pl[0]+")"+(l.pl[1]>0?" = "+money(l.q*l.pl[1]):" (precio por consultar)")).join("\n")+"\nTotal: "+(t>0?money(t):"por consultar")+(pend&&t>0?" + servicios por consultar":"");
   $("txt").value=txt;
-  const wa=$("wa");
-  if(WA){wa.style.display="block";wa.href="https://wa.me/"+WA+"?text="+encodeURIComponent(txt)}
+  if(WA){const w=$("wa");w.style.display="block";w.href="https://wa.me/"+WA+"?text="+encodeURIComponent(txt)}
 }
-$("chips").addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;cat=b.dataset.c;drawChips();drawGrid()});
-$("grid").addEventListener("change",e=>{const s=e.target.closest("select");if(!s)return;sel[s.dataset.p]=+s.value;drawGrid()});
-$("grid").addEventListener("click",e=>{
+function save(){
+  const L=lines();if(!L.length)return;
+  const total=L.reduce((a,l)=>a+l.q*l.pl[1],0);
+  fetch(U+"/rest/v1/pedidos",{method:"POST",headers:{...H,Prefer:"return=minimal"},body:JSON.stringify({items:L.map(l=>({producto:l.p.n,plan:l.pl[0],cantidad:l.q,precio:l.pl[1]})),total:total,texto:$("txt").value})}).catch(()=>{});
+}
+$("q").addEventListener("input",e=>{qs=norm(e.target.value.trim());draw()});
+$("chips").addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;cat=b.dataset.c;chips();draw()});
+$("list").addEventListener("change",e=>{const s=e.target.closest("select");if(!s)return;sel[s.dataset.p]=+s.value;draw()});
+$("list").addEventListener("click",e=>{
   const b=e.target.closest("[data-add]");if(!b)return;
   const k=b.dataset.add+"|"+(sel[b.dataset.add]||0);
   cart[k]=(cart[k]||0)+1;drawCart();
@@ -155,29 +157,21 @@ $("open").addEventListener("click",()=>{$("ok").textContent="";drawCart();$("dlg
 $("close").addEventListener("click",()=>$("dlg").close());
 $("dlg").addEventListener("click",e=>{if(e.target===$("dlg"))$("dlg").close()});
 $("copy").addEventListener("click",async()=>{
-  const t=$("txt");t.select();
+  const t=$("txt");t.select();save();
   try{await navigator.clipboard.writeText(t.value);$("ok").textContent="Pedido copiado ✓ Pégalo en tu chat para enviarlo."}
   catch(e){$("ok").textContent="Mantén presionado el texto y elige Copiar."}
 });
-drawChips();drawGrid();drawCart();
-</script>  <script>
-(function(){
-const U="https://jvtlgyqezihmnjbvdxli.supabase.co",K="sb_publishable_HIPzFPSoUQAlJ2dxiqJyiw_xtW1eeiQ";
-const H={apikey:K,"Content-Type":"application/json"};
-fetch(U+"/rest/v1/productos?select=*&order=orden.asc",{headers:H}).then(r=>r.ok?r.json():[]).then(rows=>{
-  if(!rows.length)return;
-  PRODUCTS.splice(0,PRODUCTS.length,...rows.map(x=>({id:x.id,n:x.nombre,c:x.categoria,e:x.emoji||"🛒",d:x.descripcion||"",g:[x.color1||"#19d3c5",x.color2||"#07897f"],plans:x.planes.map(p=>[p.n,p.p])})));
-  cats.splice(0,cats.length,"Todos",...new Set(PRODUCTS.map(p=>p.c)));
-  drawChips();drawGrid();drawCart();
-}).catch(()=>{});
-function save(){
-  const L=lines();if(!L.length)return;
-  const total=L.reduce((a,l)=>a+l.q*l.pl[1],0);
-  fetch(U+"/rest/v1/pedidos",{method:"POST",headers:{...H,Prefer:"return=minimal"},body:JSON.stringify({items:L.map(l=>({producto:l.p.n,plan:l.pl[0],cantidad:l.q,precio:l.pl[1]})),total:total,texto:$("txt").value})}).catch(()=>{});
-}
-$("copy").addEventListener("click",save);
 $("wa").addEventListener("click",save);
-})();
+
+fetch(U+"/rest/v1/productos?select=*&order=orden.asc",{headers:{apikey:K}})
+  .then(r=>{if(!r.ok)throw 0;return r.json()})
+  .then(rows=>{
+    P=rows.map(x=>({id:x.id,n:x.nombre,c:x.categoria,d:x.descripcion||"",i:x.icono||0,img:x.imagen,plans:x.planes.map(p=>[p.n,p.p])}));
+    chips();draw();drawCart();
+  })
+  .catch(()=>{$("list").innerHTML='<div class="msg">No pudimos cargar el catálogo. Revisa tu conexión y recarga la página.</div>'});
+
+if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
 </script>
 </body>
-  </html>
+</html>
